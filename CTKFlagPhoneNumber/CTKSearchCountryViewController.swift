@@ -23,6 +23,7 @@ open class CTKSearchCountryViewController: UITableViewController, UISearchResult
 	
 	open var delegate: CTKFlagPhoneNumberDelegate?
 	
+    open var shouldShowPhoneCode: Bool = false
 	
 	public init(countries: [Country]) {
 		super.init(nibName: nil, bundle: nil)
@@ -75,7 +76,7 @@ open class CTKSearchCountryViewController: UITableViewController, UISearchResult
 			navigationItem.searchController = searchController
 		} else {
 			searchController?.dimsBackgroundDuringPresentation = false
-			searchController?.hidesNavigationBarDuringPresentation = false
+			searchController?.hidesNavigationBarDuringPresentation = true
 			searchController?.definesPresentationContext = true
 			
 			//				searchController?.searchBar.sizeToFit()
@@ -114,7 +115,9 @@ open class CTKSearchCountryViewController: UITableViewController, UISearchResult
 		let country = getItem(at: indexPath)
 		
 		cell.textLabel?.text = country.name
-		cell.detailTextLabel?.text = country.phoneCode
+        if self.shouldShowPhoneCode {
+            cell.detailTextLabel?.text = country.phoneCode
+        }
 		cell.imageView?.image = country.flag
 		
 		return cell
