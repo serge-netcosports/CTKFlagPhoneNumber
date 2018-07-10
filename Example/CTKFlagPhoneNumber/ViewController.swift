@@ -15,7 +15,7 @@ class ViewController: UIViewController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		
+        
 		title = "CTKFlagPhoneNumber"
 
 		//		To use your own flag icons, uncommment the line :
@@ -75,9 +75,18 @@ class ViewController: UIViewController {
 
 	
 	@objc func validate() {
-		print(phoneNumberTextField.getFormattedPhoneNumber() ?? "No formatted phone number")
-		print(phoneNumberTextField.getCountryPhoneCode() ?? "No country phone code")
-		print(phoneNumberTextField.getRawPhoneNumber() ?? "No raw phone number")
+        let searchCountryViewController = CTKSearchCountryViewController(countries: CountryPicker().countries)
+        let navigationViewController = UINavigationController(rootViewController: searchCountryViewController)
+        
+        searchCountryViewController.delegate = self
+        
+        present(navigationViewController, animated: true, completion: nil)
 	}
+}
+
+extension ViewController: CTKFlagPhoneNumberDelegate {
+    func didSelect(country: Country) {
+        print("Selected country: \(country)")
+    }
 }
 

@@ -1,6 +1,6 @@
 import Foundation
 
-struct Country {
+public struct Country {
 	var code: String?
 	var name: String?
 	var phoneCode: String?

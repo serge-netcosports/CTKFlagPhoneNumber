@@ -6,7 +6,7 @@ import UIKit
 
 open class CountryPicker: UIPickerView, UIPickerViewDelegate, UIPickerViewDataSource {
 	
-	var countries: [Country]!
+	open var countries: [Country]!
 	open var selectedLocale: Locale?
 	open weak var countryPickerDelegate: CountryPickerDelegate?
 	open var showPhoneNumbers: Bool = true

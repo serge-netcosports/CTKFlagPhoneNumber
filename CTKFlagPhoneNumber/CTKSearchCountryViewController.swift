@@ -15,32 +15,32 @@
 
 import Foundation
 
-class CTKSearchCountryViewController: UITableViewController, UISearchResultsUpdating, UISearchControllerDelegate {
+open class CTKSearchCountryViewController: UITableViewController, UISearchResultsUpdating, UISearchControllerDelegate {
 	
 	var searchController: UISearchController?
 	var list: [Country]?
 	var results: [Country]?
 	
-	var delegate: CTKFlagPhoneNumberDelegate?
+	open var delegate: CTKFlagPhoneNumberDelegate?
 	
 	
-	init(countries: [Country]) {
+	public init(countries: [Country]) {
 		super.init(nibName: nil, bundle: nil)
 		
 		self.list = countries
 	}
 	
-	required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
 	
-	override func viewDidLoad() {
+    override open func viewDidLoad() {
 		super.viewDidLoad()
 		
 		initSearchBarController()
 	}
 	
-	override func viewWillAppear(_ animated: Bool) {
+    override open func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 
 		if #available(iOS 11.0, *) {
@@ -50,14 +50,14 @@ class CTKSearchCountryViewController: UITableViewController, UISearchResultsUpda
 		}
 	}
 	
-	override func viewDidAppear(_ animated: Bool) {
+    override open func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear(animated)
 		
 		searchController?.isActive = true
 	}
 	
 	@objc private func dismissController() {
-		dismiss(animated: false, completion: nil)
+		dismiss(animated: true, completion: nil)
 	}
 	
 	private func initSearchBarController() {
@@ -75,7 +75,7 @@ class CTKSearchCountryViewController: UITableViewController, UISearchResultsUpda
 			navigationItem.searchController = searchController
 		} else {
 			searchController?.dimsBackgroundDuringPresentation = false
-			searchController?.hidesNavigationBarDuringPresentation = true
+			searchController?.hidesNavigationBarDuringPresentation = false
 			searchController?.definesPresentationContext = true
 			
 			//				searchController?.searchBar.sizeToFit()
@@ -96,11 +96,11 @@ class CTKSearchCountryViewController: UITableViewController, UISearchResultsUpda
 		return array[indexPath.row]
 	}
 	
-	override func numberOfSections(in tableView: UITableView) -> Int {
+    override open func numberOfSections(in tableView: UITableView) -> Int {
 		return 1
 	}
 	
-	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override open func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		if let searchController = searchController, searchController.isActive {
 			if let count = searchController.searchBar.text?.count, count > 0 {
 				return results?.count ?? 0
@@ -109,7 +109,7 @@ class CTKSearchCountryViewController: UITableViewController, UISearchResultsUpda
 		return list?.count ?? 0
 	}
 	
-	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override open func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = UITableViewCell(style: .value1, reuseIdentifier: nil)
 		let country = getItem(at: indexPath)
 		
@@ -120,7 +120,7 @@ class CTKSearchCountryViewController: UITableViewController, UISearchResultsUpda
 		return cell
 	}
 	
-	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    override open func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		tableView.reloadRows(at: [indexPath], with: .automatic)
 		
 		delegate?.didSelect(country: getItem(at: indexPath))
@@ -133,7 +133,7 @@ class CTKSearchCountryViewController: UITableViewController, UISearchResultsUpda
 
 	// UISearchResultsUpdating
 	
-	func updateSearchResults(for searchController: UISearchController) {
+    public func updateSearchResults(for searchController: UISearchController) {
 		if list == nil {
 			results?.removeAll()
 			return
@@ -160,17 +160,17 @@ class CTKSearchCountryViewController: UITableViewController, UISearchResultsUpda
 
 	// UISearchControllerDelegate
 	
-	func didPresentSearchController(_ searchController: UISearchController) {
+    public func didPresentSearchController(_ searchController: UISearchController) {
 		DispatchQueue.main.async { [unowned self] in
-			self.searchController?.searchBar.becomeFirstResponder()
+            self.searchController?.searchBar.becomeFirstResponder()
 		}
 	}
 	
-	func willDismissSearchController(_ searchController: UISearchController) {
+    public func willDismissSearchController(_ searchController: UISearchController) {
 		results?.removeAll()
 	}
 	
-	func didDismissSearchController(_ searchController: UISearchController) {
+    public func didDismissSearchController(_ searchController: UISearchController) {
 		dismissController()
 	}
 }

@@ -163,6 +163,7 @@
 				17D3FDBB20C1A4EF00401F45 /* Frameworks */,
 				17D3FDBC20C1A4EF00401F45 /* Resources */,
 				2ED1B5DA5FD93DFBE3976BCE /* [CP] Embed Pods Frameworks */,
+				AE8CCAB53579018344848898 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -183,6 +184,7 @@
 				607FACCD1AFB9204008FA782 /* Frameworks */,
 				607FACCE1AFB9204008FA782 /* Resources */,
 				D40414452EDCB5B06F74AF2F /* [CP] Embed Pods Frameworks */,
+				F9E2141B732C6D819CFBD421 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -294,6 +296,21 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CTKFlagPhoneNumber_ExampleTests/Pods-CTKFlagPhoneNumber_ExampleTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		AE8CCAB53579018344848898 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CTKFlagPhoneNumber_ExampleTests/Pods-CTKFlagPhoneNumber_ExampleTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		B1F212E2497F26FE05EEF335 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -330,6 +347,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CTKFlagPhoneNumber_Example/Pods-CTKFlagPhoneNumber_Example-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F9E2141B732C6D819CFBD421 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CTKFlagPhoneNumber_Example/Pods-CTKFlagPhoneNumber_Example-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */

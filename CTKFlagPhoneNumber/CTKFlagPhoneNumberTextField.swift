@@ -155,7 +155,7 @@ open class CTKFlagPhoneNumberTextField: UITextField, UITextFieldDelegate, Countr
 		leftView?.addSubview(flagButton)
 		leftView?.addSubview(phoneCodeTextField)
 
-		let views = ["flag": flagButton, "textField": phoneCodeTextField]
+        let views = ["flag": flagButton, "textField": phoneCodeTextField] as [String : Any]
 		let horizontalConstraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|[flag]-(0)-[textField]|", options: [], metrics: nil, views: views)
 
 		leftView?.addConstraints(horizontalConstraints)
@@ -385,7 +385,7 @@ open class CTKFlagPhoneNumberTextField: UITextField, UITextFieldDelegate, Countr
 
 	// - CTKFlagPhoneNumberDelegate
 	
-	internal func didSelect(country: Country) {
+	public func didSelect(country: Country) {
 		guard let phoneCode = country.phoneCode else { return }
 		guard let countryCode = country.code else { return }
 

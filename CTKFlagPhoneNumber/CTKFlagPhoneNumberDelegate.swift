@@ -15,6 +15,6 @@
 
 import Foundation
 
-protocol CTKFlagPhoneNumberDelegate {
+public protocol CTKFlagPhoneNumberDelegate {
 	func didSelect(country: Country)
 }
