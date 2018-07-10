@@ -1,7 +1,7 @@
 import Foundation
 
 public struct Country {
-	var code: String?
+	public var code: String?
 	var name: String?
 	var phoneCode: String?
 	var flag: UIImage?
