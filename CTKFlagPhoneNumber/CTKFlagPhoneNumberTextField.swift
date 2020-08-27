@@ -169,7 +169,7 @@ open class CTKFlagPhoneNumberTextField: UITextField, UITextFieldDelegate, Countr
 		countryPicker.countryPickerDelegate = self
 		countryPicker.showPhoneNumbers = true
 		countryPicker.backgroundColor = .white
-		countryPicker.setCountry(Locale.current.regionCode!)
+		countryPicker.setCountry(Locale.current.regionCode ?? "")
 	}
 	
 	@objc private func displayNumberKeyBoard() {
