@@ -23,6 +23,13 @@ open class CTKFlagPhoneNumberTextField: UITextField, UITextFieldDelegate, Countr
 			layoutSubviews()
 		}
 	}
+
+  override public func deleteBackward() {
+      if(text! == "") {
+          displayCountryKeyboard()
+      }
+      super.deleteBackward()
+  }
 	
 	/// The size of the leftView
 	private var leftViewSize: CGSize {
